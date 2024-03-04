@@ -18,6 +18,8 @@ app.use("/",UserRegistrationRoute)
 const UserLoginRoute = require("./routes/UserLoginRoute")
 app.use("/",UserLoginRoute)
 
+const AdminRoutes =  require('./routes/AdminRoutes')
+app.use("/admin", AdminRoutes)
 
 const UserRoutes = require('./routes/UserRoutes')
 app.use("/user", UserRoutes)

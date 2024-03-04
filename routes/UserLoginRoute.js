@@ -5,4 +5,4 @@ const route = express.Router()
 const UserLoginController = require("../controllers/UserLoginController")
 route.post("/login", UserLoginController.login)
  
-module.exports = route
+module.exports = route 
