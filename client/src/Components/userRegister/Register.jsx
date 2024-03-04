@@ -7,8 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { object, string, number, date, InferType } from 'yup';
 import * as yup from 'yup';
-import { useDispatch } from 'react-redux';
-import { addData } from '../../store/slices/userLoginDataSlice'
+// import { useDispatch } from 'react-redux';
+// import { addData } from '../../store/slices/userLoginDataSlice'
 
 import axios, { Axios } from 'axios';
 
@@ -31,7 +31,6 @@ const Register = () => {
   const [mobileNumber, setMobileNumber] = useState("")
   const [showPass, setShowPass] = useState("password")
   const [notifyMessage, setNotifyMessage] = useState("")
-  const dispatch = useDispatch();
   const notify = (notifyMessage) => toast(notifyMessage);
 
   const handleShowPass = (value) => {
@@ -60,7 +59,6 @@ const Register = () => {
       if (apiFetched.data.status == "OK" || apiFetched.data.status == "ok") {
         localStorage.setItem("authorization", apiFetched.data.data.authToken)
         // console.log("harshit data",apiFetched.data.data.userdata)
-        dispatch(addData(apiFetched.data.data.userdata));
         notify(apiFetched.data.msg)
         navigate("/")
       }else{
