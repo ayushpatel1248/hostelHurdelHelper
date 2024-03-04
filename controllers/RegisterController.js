@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const UserService = require("../services/UserService")
 const RegisterController = {}
 const schema = joi.object({
-    userName : joi.string().min(4).max(40).required(),
+    registrationNumber : joi.string().min(4).max(40).required(),
     email:joi.string().email().required(),
     mobileNumber : joi.string().regex(/^[0-9]{10}$/).messages({'string.pattern.base': `Phone number must have 10 digits.`}).required(),
     password: joi.string().min(4).required()
@@ -41,6 +41,7 @@ try{
         })
      }
 }
+
 catch(err){
     res.send({
         status : "err", 

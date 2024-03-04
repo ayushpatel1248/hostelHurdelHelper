@@ -2,7 +2,8 @@ const User = require("../model/Users")
 
 const UserService = {}
 
-//----------------------------profile information-------------------------
+// ------------------------profile information-------------------------
+
 
 
 UserService.getUserData = async (_id) => {
