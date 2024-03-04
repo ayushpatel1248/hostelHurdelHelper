@@ -1,12 +1,12 @@
-// const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
-// // ******************************add database url below***********************************************
+// ******************************add database url below***********************************************
 
-// MONGODB_URI = 'mongodb+srv://ayushpatel062004:Gh7ypCDLEPJnuuib@proprogrammers.r6bjbcn.mongodb.net/ECommerce?retryWrites=true&w=majority'                   
+MONGODB_URI = 'mongodb+srv://ayushpatel062004:Gh7ypCDLEPJnuuib@proprogrammers.r6bjbcn.mongodb.net/hostelHurdelHelper?retryWrites=true&w=majority'                   
 
-// mongoose.connect(MONGODB_URI).then(res => {
-//     console.log("connected to database server successfully")
-// }).catch(err => {
-//     console.log("error while connecting  to server")
-// })
+mongoose.connect(MONGODB_URI).then(res => {
+    console.log("connected to database server successfully")
+}).catch(err => {
+    console.log("error while connecting  to server")
+})
 
