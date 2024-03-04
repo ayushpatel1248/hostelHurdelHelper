@@ -12,8 +12,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 
-// const UserRegrestrationRoute = require("./routes/UserRegrestrationRoute")
-// app.use("/",UserRegrestrationRoute)
+const UserRegistrationRoute = require("./routes/UserRegistrationRoute")
+app.use("/",UserRegistrationRoute)
 
 
 
