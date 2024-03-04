@@ -19,6 +19,13 @@ const UserLoginRoute = require("./routes/UserLoginRoute")
 app.use("/",UserLoginRoute)
 
 
+const UserRoutes = require('./routes/UserRoutes')
+app.use("/user", UserRoutes)
+
+
+const IssueRoutes = require('./routes/IssueRoutes')
+app.use("/", IssueRoutes)
+ 
 app.listen(9999, ()=>{
   console.log("server is running on port : ", 9999)
 });
