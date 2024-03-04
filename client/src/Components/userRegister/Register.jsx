@@ -31,6 +31,8 @@ const Register = () => {
   const [mobileNumber, setMobileNumber] = useState("")
   const [showPass, setShowPass] = useState("password")
   const [notifyMessage, setNotifyMessage] = useState("")
+  const [blockNo, setBlockNo] = useState("")
+  const [roomNo, setRoomNo] = useState("")
   const notify = (notifyMessage) => toast(notifyMessage);
 
   const handleShowPass = (value) => {
@@ -53,7 +55,7 @@ const Register = () => {
         password
       })
 
-      const apiFetched = await axios.post(`${baseurl}/register`, { userName, email, mobileNumber, password })
+      const apiFetched = await axios.post(`${baseurl}/register`, { userName, email, mobileNumber, password, blockNo , roomNo})
       console.log("api answer = ", apiFetched)
       console.log(apiFetched.data.data)
       if (apiFetched.data.status == "OK" || apiFetched.data.status == "ok") {
@@ -78,7 +80,7 @@ const Register = () => {
         <h2>Registration</h2>
         <form className='registrationForm' onSubmit={handleRegister}>
           <div class="input-box">
-            <input type="text" placeholder="Enter your userName" onChange={(e) => setUserName(e.target.value)} required />
+            <input type="text" placeholder="Enter your registernumber" onChange={(e) => setUserName(e.target.value)} required />
           </div>
 
           <div class="input-box">
@@ -87,6 +89,13 @@ const Register = () => {
 
           <div class="input-box">
             <input type="number" placeholder="enter mobile number" onChange={(e) => setMobileNumber(e.target.value)} required />
+          </div>
+
+          <div class="input-box">
+            <input type="number" placeholder="enter block no" onChange={(e) => setBlockNo(e.target.value)} required />
+          </div>
+          <div class="input-box">
+            <input type="number" placeholder="enter room no" onChange={(e) => setRoomNo(e.target.value)} required />
           </div>
 
           <div class="input-box">
