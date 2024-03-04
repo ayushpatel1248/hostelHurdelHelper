@@ -15,6 +15,8 @@ app.use(bodyParser.json())
 const UserRegistrationRoute = require("./routes/UserRegistrationRoute")
 app.use("/",UserRegistrationRoute)
 
+const UserLoginRoute = require("./routes/UserLoginRoute")
+app.use("/",UserLoginRoute)
 
 
 app.listen(9999, ()=>{
