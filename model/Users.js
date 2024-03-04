@@ -24,11 +24,6 @@ const UsersSchema = new Schema({
     },
 
   
-    "address": {
-        "street": {
-            "type": String
-        }
-    },
     
     "role": {
         "type": String,

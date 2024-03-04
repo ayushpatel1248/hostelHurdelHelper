@@ -5,17 +5,17 @@ const UserService = {}
 UserService.findUserWithEmail = async (email) => {
     return (await User.findOne({ email }))
 }
-UserService.registerUser = async (userName, email, mobileNumber, password) => {
-    let a = await User.create({ userName, email, mobileNumber, password })
+UserService.registerUser = async (registrationNumber, email, mobileNumber, password) => {
+    let a = await User.create({ registrationNumber, email, mobileNumber, password })
     return a
 }
 
 //----------------------------profile information-------------------------
 
-UserService.addProfileInfo = async (_id, dateOfBirth, address, role) => {
+UserService.addProfileInfo = async (_id, address, role) => {
     //checking if updation is possible then updating 
     try {
-        let updatedInfo = await User.findOneAndUpdate({ _id }, { dateOfBirth, address, role }, { new: true, runValidators: true })
+        let updatedInfo = await User.findOneAndUpdate({ _id }, {  address, role }, { new: true, runValidators: true })
         console.log("this = ", updatedInfo);
         if (updatedInfo) {
             return {
