@@ -5,7 +5,6 @@ const jwt = require('jsonwebtoken')
 
 const secretKey = "hahaha"  //key for decrypting admin side auth 
 
-
 // this is schema for validatiing the data came from admin side at the time of registering 
 const schema = joi.object({
     registrationNumber: joi.string().min(4).max(40).required(),
@@ -26,15 +25,16 @@ const adminController = {};
 adminController.register = async (req, res) => {
     const { registrationNumber, email, contactPhoneNumber, password } = req.body;
     try {
+        
         await schema.validateAsync({ registrationNumber, email, contactPhoneNumber, password })
-        const result = await AdminService.register(registrationNumber,  email, contactPhoneNumber,password);
+        const result = await AdminService.register(registrationNumber, password, email, contactPhoneNumber);
         res.send(result)
     }
     catch (err) {
         res.send({
             status: "err",
             msg: "error occured",
-            data: err.details[0]
+            data: err
         })
     }
 }
@@ -55,7 +55,6 @@ adminController.login = async (req, res) => {
     }
 
 }
-
 
 
 

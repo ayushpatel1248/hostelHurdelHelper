@@ -1,4 +1,4 @@
-const Admin = require("../model/Admin")
+const Admin = require("../model/AdminVit")
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
@@ -9,8 +9,9 @@ const saltRounds = 10;
 const secretKey = "hahaha"
 // ---------------------------------------------------------------------------------------------------------------------
 
-AdminService.register = async (registrationNumber, password, email, contactPhoneNumber) => {
+AdminService.register = async (registrationNumber, password, email,contactPhoneNumber) => {
     try {
+        
         const adminFound = await Admin.findOne({
             $or: [
                 { registrationNumber },
@@ -38,7 +39,7 @@ AdminService.register = async (registrationNumber, password, email, contactPhone
         else {
             return {
                 status: "err",
-                msg: "admin already registered with this email or registrationNumber try entering different registrationNumber or email",
+                msg: "admin already resgiterd with this email or registrationNumber try entering different registrationNumber or email",
                 data: null
             }
         }
@@ -46,8 +47,8 @@ AdminService.register = async (registrationNumber, password, email, contactPhone
     catch (err) {
         return {
             status: "err",
-            msg: "server error",
-            data: null
+            msg: "server error,err", 
+            data: err
         }
     }
 
@@ -57,7 +58,6 @@ AdminService.login = async (email, password) => {
     try {
         const adminFound = await Admin.findOne({ email });
         if (adminFound) {
-            
             const passwordCheck = bcrypt.compareSync(password, adminFound.password);
             delete adminFound._doc.password
 
